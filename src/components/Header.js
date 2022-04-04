@@ -1,7 +1,7 @@
 import header from '../assets/Header.png'
 import { Link } from '@mui/material';
 
-export const Header = () => {
+function Header() {
     return (
         <div>
         <Link href="/">
@@ -10,3 +10,5 @@ export const Header = () => {
         </div> 
     )
 };
+
+export default Header;
