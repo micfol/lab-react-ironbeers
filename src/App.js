@@ -1,6 +1,6 @@
 import './App.css';
 import { BeersList } from './components/BeersList';
-import { Route, Routes, useParams } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import { Container } from '@mui/material';
 import { AddBeer } from './components/AddBeer';
@@ -34,8 +34,8 @@ function App() {
           <Route exact path="/" element={<HomePage />} />
           <Route path="/beers" element={<BeersList query={"all"} allBeers={beers}/>} />
           <Route path="/new-beer" element={<AddBeer />} />
-          <Route path="/random-beer" element={<BeersList query={"random"} handleGetBeers={getBeers}/>} />
-          <Route path="/beers/:beerId" element={<SingleBeer allBeers={beers}/>} />
+          <Route path="/random-beer" element={<SingleBeer query={"random"} />} />
+          <Route path="/beers/:beerId" element={<SingleBeer query={"byId"}/>} />
         </Routes>     
       </Container>
     </div>

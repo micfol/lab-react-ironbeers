@@ -7,21 +7,23 @@ import { maxHeight } from '@mui/system';
 
 export const SingleBeer = (props) => {
     
+    const { query } = props;
+
     const [singleBeer, setSingleBeer] = useState({});
     const { beerId } = useParams();
 
-    async function getSingleBeer() {
+    async function getSingleBeer(query) {
         const queryType = {
             "random" : "/random",
             "byId" : "/" + beerId,
             };
-        const response = await axios.get("https://ih-beers-api2.herokuapp.com/beers/" + beerId);
+        const response = await axios.get("https://ih-beers-api2.herokuapp.com/beers/" + queryType[query]);
        
         setSingleBeer(response.data);
       };
 
       useEffect(() => {
-        getSingleBeer();
+        getSingleBeer(query);
       }, []);
 
     return (
