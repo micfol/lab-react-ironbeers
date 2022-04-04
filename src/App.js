@@ -20,7 +20,6 @@ function App() {
     "search" : "/search?q=" + searchTerm
     };
     const response = await axios.get("https://ih-beers-api2.herokuapp.com/beers" + queryType[query]);
-    // console.log('response.data', response.data);
    setBeers(response.data);
   };
 
